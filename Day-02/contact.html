@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Contact Us</h1>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <!-- Contact Information Section -->
+  <main>
+    <section>
+      <h2>Get in Touch</h2>
+      
+      <!-- Semantic contact info using <address> -->
+      <address>
+        <strong>DevConf 2026 Office</strong><br>
+        123 Conference Blvd, Hyderabad, Telangana, India<br>
+        Email: <a href="mailto:info@devconf2026.com">info@devconf2026.com</a><br>
+        Phone: <a href="tel:+911234567890">+91-1234567890</a><br>
+        Office Hours: Mon–Fri, 9:00 AM – 6:00 PM
+      </address>
+    </section>
+
+    <!-- Embedded Map -->
+    <section>
+      <h2>Our Location</h2>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093747!2d144.9537353153168!3d-37.816279742021825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f1f1b16f%3A0x5045675218ce6e0!2sDevConf%20Location!5e0!3m2!1sen!2sin!4v1700000000000"
+        width="600"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        title="DevConf 2026 Location Map">
+      </iframe>
+      <p><em>Map showing the conference venue</em></p>
+    </section>
+
+    <!-- Contact Form -->
+    <section>
+      <h2>Contact Form</h2>
+      <form action="#" method="POST">
+
+        <!-- Name -->
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"
+               required minlength="2"
+               placeholder="Your name">
+        <br><br>
+
+        <!-- Email -->
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"
+               required placeholder="name@example.com">
+        <br><br>
+
+        <!-- Subject -->
+        <label for="subject">Subject:</label><br>
+        <select id="subject" name="subject" required>
+          <option value="">Choose a topic</option>
+          <option value="general">General Inquiry</option>
+          <option value="registration">Registration Help</option>
+          <option value="speakers">Speaker Questions</option>
+          <option value="sponsorship">Sponsorship</option>
+          <option value="technical">Technical Support</option>
+        </select>
+        <br><br>
+
+        <!-- Message -->
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message"
+                  rows="8" maxlength="2000"
+                  required
+                  placeholder="How can we help?"></textarea>
+        <br><br>
+
+        <!-- Preferred Contact Method -->
+        <p>Preferred Contact Method:</p>
+        <input type="radio" id="pref-email" name="preferred" value="email" checked>
+        <label for="pref-email">Email</label><br>
+        <input type="radio" id="pref-phone" name="preferred" value="phone">
+        <label for="pref-phone">Phone</label><br>
+        <input type="radio" id="pref-either" name="preferred" value="either">
+        <label for="pref-either">Either</label>
+        <br><br>
+
+        <!-- Best Time to Call -->
+        <label for="time">Best Time to Call:</label><br>
+        <input type="time" id="time" name="time">
+        <br><br>
+
+        <!-- Submit -->
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <!-- Social Media Links -->
+    <section>
+      <h2>Follow Us</h2>
+      <nav>
+        <a href="https://facebook.com/devconf2026">Facebook</a> |
+        <a href="https://twitter.com/devconf2026">Twitter</a> |
+        <a href="https://linkedin.com/company/devconf2026">LinkedIn</a> |
+        <a href="https://instagram.com/devconf2026">Instagram</a>
+      </nav>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; DevConf 2026. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

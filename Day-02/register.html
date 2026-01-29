@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register for DevConf 2026</title>
+</head>
+<body>
+
+  <!-- Header with navigation -->
+  <header>
+    <h1>Register for DevConf 2026</h1>
+    <nav>
+      <a href="index.html">Back to Home</a>
+    </nav>
+  </header>
+
+  <main>
+    <form action="#" method="POST">
+      
+      <!-- Personal Information -->
+      <fieldset>
+        <legend>Personal Information</legend>
+
+        <label for="first-name">First Name:</label><br>
+        <input type="text" id="first-name" name="first-name" required placeholder="Ex: John">
+
+        <br><br>
+
+        <label for="last-name">Last Name:</label><br>
+        <input type="text" id="last-name" name="last-name" required placeholder="Ex: Doe">
+
+        <br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"
+               required placeholder="name@example.com"
+               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+
+        <br><br>
+
+        <label for="phone">Phone:</label><br>
+        <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210">
+
+        <br><br>
+
+        <label for="dob">Date of Birth:</label><br>
+        <input type="date" id="dob" name="dob">
+      </fieldset>
+
+      <br>
+
+      <!-- Professional Details -->
+      <fieldset>
+        <legend>Professional Details</legend>
+
+        <label for="job-title">Job Title:</label><br>
+        <input type="text" id="job-title" name="job-title" placeholder="Ex: Software Engineer">
+
+        <br><br>
+
+        <label for="company">Company/Organization:</label><br>
+        <input type="text" id="company" name="company" placeholder="Ex: Tech Corp">
+
+        <br><br>
+
+        <label for="experience">Years of Experience:</label><br>
+        <input type="number" id="experience" name="experience" min="0" max="50">
+
+        <br><br>
+
+        <label for="industry">Industry:</label><br>
+        <select id="industry" name="industry">
+          <optgroup label="Tech">
+            <option value="software">Software</option>
+            <option value="hardware">Hardware</option>
+            <option value="ai">AI & Machine Learning</option>
+          </optgroup>
+          <optgroup label="Healthcare">
+            <option value="health-tech">HealthTech</option>
+            <option value="medical-devices">Medical Devices</option>
+          </optgroup>
+          <optgroup label="Finance">
+            <option value="fintech">Fintech</option>
+            <option value="banking">Banking</option>
+          </optgroup>
+        </select>
+      </fieldset>
+
+      <br>
+
+      <!-- Conference Preferences -->
+      <fieldset>
+        <legend>Conference Preferences</legend>
+
+        <p>Attendance Type:</p>
+        <input type="radio" id="attend-inperson" name="attendance" value="in-person" checked>
+        <label for="attend-inperson">In-Person</label><br>
+
+        <input type="radio" id="attend-virtual" name="attendance" value="virtual">
+        <label for="attend-virtual">Virtual</label><br>
+
+        <input type="radio" id="attend-hybrid" name="attendance" value="hybrid">
+        <label for="attend-hybrid">Hybrid</label>
+
+        <br><br>
+
+        <p>Workshop Selection:</p>
+        <input type="checkbox" id="workshop1" name="workshops" value="ws1">
+        <label for="workshop1">Workshop 1: AI Fundamentals</label><br>
+
+        <input type="checkbox" id="workshop2" name="workshops" value="ws2">
+        <label for="workshop2">Workshop 2: Web Fullstack</label><br>
+
+        <input type="checkbox" id="workshop3" name="workshops" value="ws3">
+        <label for="workshop3">Workshop 3: Cloud Native Apps</label><br>
+
+        <input type="checkbox" id="workshop4" name="workshops" value="ws4">
+        <label for="workshop4">Workshop 4: DevOps Practices</label><br>
+
+        <input type="checkbox" id="workshop5" name="workshops" value="ws5">
+        <label for="workshop5">Workshop 5: Cybersecurity Basics</label>
+
+        <br><br>
+
+        <label for="tshirt-size">T-Shirt Size:</label><br>
+        <select id="tshirt-size" name="tshirt-size">
+          <option value="XS">XS</option>
+          <option value="S">S</option>
+          <option value="M" selected>M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+          <option value="XXL">XXL</option>
+        </select>
+
+        <br><br>
+
+        <label for="dietary">Dietary Requirements:</label><br>
+        <textarea id="dietary" name="dietary" maxlength="500"
+                  placeholder="Please let us know if you have dietary needs..."></textarea>
+      </fieldset>
+
+      <br>
+
+      <!-- Additional Information -->
+      <fieldset>
+        <legend>Additional Information</legend>
+
+        <label for="accommodations">Special Accommodations:</label><br>
+        <textarea id="accommodations" name="accommodations"
+                  placeholder="Enter any accessibility or other needs..."></textarea>
+
+        <br><br>
+
+        <label for="referral">How did you hear about us?</label><br>
+        <select id="referral" name="referral">
+          <option value="friend">Friend or Colleague</option>
+          <option value="social">Social Media</option>
+          <option value="email">Email Newsletter</option>
+          <option value="search">Search Engine</option>
+        </select>
+
+        <br><br>
+
+        <label for="resume">Upload Resume/CV (PDF only):</label><br>
+        <input type="file" id="resume" name="resume" accept=".pdf">
+      </fieldset>
+
+      <br>
+
+      <!-- Terms & Conditions -->
+      <fieldset>
+        <legend>Terms & Conditions</legend>
+
+        <input type="checkbox" id="agree-terms" name="agree-terms" required>
+        <label for="agree-terms">I agree to the Terms & Conditions</label><br>
+
+        <input type="checkbox" id="newsletter" name="newsletter">
+        <label for="newsletter">Subscribe to Newsletter</label>
+      </fieldset>
+
+      <br>
+
+      <!-- Form Actions -->
+      <button type="submit">Submit Registration</button>
+      <button type="reset">Reset Form</button>
+
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; DevConf 2026</p>
+  </footer>
+
+</body>
+</html>
