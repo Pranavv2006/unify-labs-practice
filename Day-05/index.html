@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">MyWebsite</div>
+            <div class="hamburger" id="hamburger">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </div>
+            <ul class="nav-links" id="navMenu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to My Website</h1>
+        <p>This is a cool website I made</p>
+        <button>Click Me</button>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h2>Services</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Design</h3>
+                <p>I can make cool designs for your website</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div class="card">
+                <h3>Development</h3>
+                <p>I can code websites and make them work</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div class="card">
+                <h3>Responsive</h3>
+                <p>Your website will work on phones and computers</p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+        <h2>My Work</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://via.placeholder.com/300x300?text=Project+1" alt="Project 1">
+                <h3>Project 1</h3>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://via.placeholder.com/300x300?text=Project+2" alt="Project 2">
+                <h3>Project 2</h3>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://via.placeholder.com/300x300?text=Project+3" alt="Project 3">
+                <h3>Project 3</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <h2>Contact Me</h2>
+        <p>Email me at myemail@example.com</p>
+        <button>Send Email</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Copyright 2026 MyWebsite</p>
+    </footer>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,614 @@
+/* ========================================
+   CSS VARIABLES - Root Configuration
+   ======================================== */
+:root {
+    --color-primary: #667eea;
+    --color-secondary: #764ba2;
+    --color-dark: #333;
+    --color-light: #f9f9f9;
+    --color-white: #ffffff;
+    --color-text: #333;
+    
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 60px;
+    
+    --font-size-sm: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 36px;
+    --font-size-hero: clamp(24px, 5vw, 48px);
+    
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    --radius-md: 5px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+}
+
+/* ========================================
+   CUSTOM ANIMATIONS - KEYFRAMES
+   ======================================== */
+
+/* Hero Content Entrance - Fade In + Slide Up */
+@keyframes slideUpFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Attention Seeker - Pulse Effect */
+@keyframes pulseScale {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ========================================
+   HEADER AND NAVIGATION
+   ======================================== */
+header {
+    background-color: var(--color-dark);
+    padding: var(--spacing-md);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    background-color: rgba(51, 51, 51, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Logo Icon Animation */
+.logo::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border-radius: 4px;
+    animation: pulseScale 2s ease-in-out infinite;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    transition: color var(--transition-base);
+}
+
+/* Underline animation on nav links */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width var(--transition-base);
+}
+
+.nav-links a:hover {
+    color: var(--color-primary);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+}
+
+.hamburger-line {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+    transition: all var(--transition-base);
+}
+
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translateY(10px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translateY(-10px);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(to right, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative shapes in hero */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.hero h1 {
+    font-size: var(--font-size-hero);
+    margin-bottom: var(--spacing-md);
+    animation: slideUpFadeIn var(--transition-slow);
+    position: relative;
+    z-index: 1;
+}
+
+.hero p {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-lg);
+    animation: slideUpFadeIn var(--transition-slow) 0.2s both;
+    position: relative;
+    z-index: 1;
+}
+
+.hero button {
+    background-color: white;
+    color: var(--color-dark);
+    padding: 12px 30px;
+    font-size: var(--font-size-md);
+    border: none;
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+    position: relative;
+    z-index: 1;
+    animation: slideUpFadeIn var(--transition-slow) 0.4s both;
+}
+
+.hero button:hover {
+    background-color: #ddd;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Services Section */
+.services {
+    padding: var(--spacing-lg) var(--spacing-md);
+    background-color: var(--color-light);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.services h2 {
+    text-align: center;
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    padding-bottom: 20px;
+}
+
+/* Decorative underline on section titles */
+.services h2::after,
+.portfolio h2::after,
+.contact h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    border-radius: 2px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Top border animation on cards */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
+}
+
+.card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--color-dark);
+}
+
+.card p {
+    font-size: var(--font-size-sm);
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.card a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all var(--transition-base);
+    display: inline-block;
+}
+
+.card a::after {
+    content: ' →';
+    transition: transform var(--transition-base);
+    display: inline-block;
+}
+
+.card a:hover {
+    color: var(--color-secondary);
+}
+
+.card a:hover::after {
+    transform: translateX(4px);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Portfolio Section */
+.portfolio {
+    padding: var(--spacing-lg) var(--spacing-md);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.portfolio h2 {
+    text-align: center;
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.portfolio-item {
+    text-align: center;
+    transition: all var(--transition-base);
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    transition: transform var(--transition-base);
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+.portfolio-item h3 {
+    margin-top: 10px;
+    font-size: 18px;
+    color: var(--color-dark);
+    transition: color var(--transition-base);
+}
+
+.portfolio-item:hover h3 {
+    color: var(--color-primary);
+}
+
+/* Contact Section */
+.contact {
+    background: var(--color-dark);
+    color: white;
+    padding: var(--spacing-lg) var(--spacing-md);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glassmorphism decorative elements */
+.contact::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.contact::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 300px;
+    height: 300px;
+    background: rgba(118, 75, 162, 0.1);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.contact h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    padding-bottom: 20px;
+    z-index: 1;
+}
+
+.contact p {
+    font-size: var(--font-size-md);
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    z-index: 1;
+}
+
+.contact button {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    padding: 12px 30px;
+    font-size: var(--font-size-md);
+    border: none;
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+    position: relative;
+    z-index: 1;
+}
+
+.contact button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: var(--spacing-md);
+    font-size: var(--font-size-sm);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   MOBILE RESPONSIVE - <768px
+   ======================================== */
+@media (max-width: 767px) {
+    :root {
+        --font-size-hero: clamp(24px, 4vw, 32px);
+        --font-size-xl: clamp(24px, 3vw, 28px);
+    }
+    
+    /* Hamburger menu */
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(51, 51, 51, 0.98);
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height var(--transition-base);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav-links.active {
+        max-height: 400px;
+    }
+    
+    .nav-links li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 15px;
+    }
+    
+    .nav-links a::after {
+        display: none;
+    }
+    
+    .nav-links a:hover {
+        background: rgba(102, 126, 234, 0.1);
+    }
+    
+    /* Hero */
+    .hero {
+        padding: 60px 20px;
+        min-height: auto;
+    }
+    
+    .hero::before,
+    .hero::after {
+        display: none;
+    }
+    
+    /* Services */
+    .services {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    .cards {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Portfolio */
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .portfolio-item img {
+        height: 200px;
+    }
+    
+    /* Contact */
+    .contact::before,
+    .contact::after {
+        display: none;
+    }
+}
+
+/* ========================================
+   TABLET RESPONSIVE - 768px to 1024px
+   ======================================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    :root {
+        --font-size-hero: clamp(32px, 4vw, 40px);
+        --font-size-xl: clamp(28px, 3vw, 32px);
+    }
+    
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ========================================
+   DESKTOP RESPONSIVE - >1024px
+   ======================================== */
+@media (min-width: 1025px) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus states for keyboard navigation */
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
