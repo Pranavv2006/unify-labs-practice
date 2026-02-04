@@ -142,6 +142,21 @@ a:hover {
     margin: 0 auto;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+    transition: transform var(--transition-base);
+}
+
+.logo-img:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
 .logo h1 {
     margin: 0;
     font-size: var(--font-size-2xl);
