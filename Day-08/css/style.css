@@ -36,7 +36,8 @@
     --transition-slow: 350ms ease-in-out;
 }
 
-[data-theme="dark"] {
+/* Dark mode triggered by checkbox */
+#theme-toggle:checked {
     --bg-primary: #1a1a1a;
     --bg-secondary: #2d2d2d;
     --bg-tertiary: #3d3d3d;
@@ -142,21 +143,6 @@ a:hover {
     margin: 0 auto;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo-img {
-    height: 50px;
-    width: auto;
-    transition: transform var(--transition-base);
-}
-
-.logo-img:hover {
-    transform: scale(1.05) rotate(2deg);
-}
-
 .logo h1 {
     margin: 0;
     font-size: var(--font-size-2xl);
@@ -173,6 +159,10 @@ a:hover {
     margin-left: var(--spacing-lg);
 }
 
+.theme-toggle-input {
+    display: none;
+}
+
 .theme-toggle {
     background: none;
     border: none;
@@ -180,7 +170,15 @@ a:hover {
     cursor: pointer;
     padding: var(--spacing-xs);
     border-radius: 50%;
-    transition: transform var(--transition-base), background-color var(--transition-base);
+    transition: transform var(--transition-base), background-color var(--transition-base), filter var(--transition-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-icon {
+    display: inline-block;
+    transition: opacity var(--transition-base), transform var(--transition-base);
 }
 
 .theme-toggle:hover {
@@ -190,6 +188,11 @@ a:hover {
 
 .theme-toggle:active {
     transform: rotate(20deg) scale(0.95);
+}
+
+/* When dark mode is checked */
+#theme-toggle:checked + .theme-toggle {
+    filter: invert(1);
 }
 
 .nav-toggle {
