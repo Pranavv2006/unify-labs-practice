@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Text Formatter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✨ Smart Text Formatter</h1>
+            <p class="subtitle">Clean, Format, and Analyze Your Text</p>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <div class="input-group">
+                    <label for="textInput">Enter Your Text:</label>
+                    <textarea 
+                        id="textInput" 
+                        placeholder="Type or paste your text here... ✍️"
+                        rows="6"></textarea>
+                </div>
+            </section>
+
+            <section class="controls">
+                <button class="btn btn-primary" onclick="applyTitleCase()">
+                    📝 Title Case
+                </button>
+                <button class="btn btn-primary" onclick="displayVowelCount()">
+                    🔤 Count Vowels
+                </button>
+                <button class="btn btn-primary" onclick="showSecretMessage()">
+                    🔐 Secret Message
+                </button>
+                <button class="btn btn-secondary" onclick="clearAll()">
+                    🗑️ Clear
+                </button>
+            </section>
+
+            <section class="results-section">
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3>📋 Title Case Result</h3>
+                        <div class="result-output" id="titleCaseOutput">
+                            <p class="placeholder">Your formatted text will appear here...</p>
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <h3>🔤 Vowel Count</h3>
+                        <div class="result-output" id="vowelOutput">
+                            <p class="placeholder">Click "Count Vowels" to analyze...</p>
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <h3>🔐 Secret Message</h3>
+                        <div class="result-output" id="secretOutput">
+                            <p class="placeholder">Click "Secret Message" to censor...</p>
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <h3>📊 Text Statistics</h3>
+                        <div class="result-output" id="statsOutput">
+                            <p class="placeholder">Statistics will appear here...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="secret-config">
+                <h3>⚙️ Secret Message Configuration</h3>
+                <p class="config-label">Words to censor (comma-separated):</p>
+                <input 
+                    type="text" 
+                    id="secretWords" 
+                    placeholder="e.g., password, secret, hidden"
+                    value="password, secret, hidden, confidential">
+                <p class="help-text">These words will be replaced with *** when generating secret messages</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2026 Smart Text Formatter | Built with HTML, CSS & JavaScript</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
