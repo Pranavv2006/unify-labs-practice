@@ -1,0 +1,26 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #fafafa;
+  color: #222;
+  padding: 2rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+.dark-theme {
+  background: #222;
+  color: #eee;
+}
+
+.container {
+  max-width: 400px;
+  margin: auto;
+}
+
+.setting {
+  margin: 1rem 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+}
