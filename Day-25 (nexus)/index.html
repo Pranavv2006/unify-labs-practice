@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PROJECT NEXUS — Real-time Analytics Hub</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__inner">
+        <div class="header__brand">
+          <span class="header__logo">
+            <i class="fa-solid fa-bolt"></i>
+          </span>
+          <div>
+            <h1 class="header__title">PROJECT NEXUS</h1>
+            <p class="header__subtitle">Real-time Data &amp; Analytics Hub</p>
+          </div>
+        </div>
+
+        <div class="header__actions">
+          <button
+            class="btn btn--icon"
+            id="refreshBtn"
+            title="Refresh Data"
+            aria-label="Refresh Data"
+          >
+            <i class="fa-solid fa-rotate-right"></i>
+          </button>
+          <button
+            class="btn btn--icon theme-toggle"
+            id="themeToggle"
+            title="Toggle Theme"
+            aria-label="Toggle Dark/Light Mode"
+          >
+            <i class="fa-solid fa-moon" id="themeIcon"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ═══════════════════════ TOAST NOTIFICATION ═══════════════════════ -->
+    <div class="toast" id="toast" role="alert" aria-live="polite">
+      <i class="fa-solid fa-circle-check toast__icon" id="toastIcon"></i>
+      <span id="toastMsg"></span>
+    </div>
+
+    <!-- ═══════════════════════ MAIN ═══════════════════════ -->
+    <main class="main">
+      <!-- ───── Stats Bar ───── -->
+      <section class="stats-bar" id="statsBar">
+        <div class="stat-card">
+          <span class="stat-card__label">Total Coins</span>
+          <span class="stat-card__value" id="statTotal">—</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__label">Showing</span>
+          <span class="stat-card__value" id="statShowing">—</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__label">Watchlist</span>
+          <span class="stat-card__value" id="statFavorites">—</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__label">Last Updated</span>
+          <span class="stat-card__value" id="statUpdated">—</span>
+        </div>
+      </section>
+
+      <!-- ───── Toolbar ───── -->
+      <section class="toolbar">
+        <div class="toolbar__search">
+          <i class="fa-solid fa-magnifying-glass toolbar__search-icon"></i>
+          <input
+            type="search"
+            id="searchInput"
+            class="toolbar__input"
+            placeholder="Search coins by name or symbol…"
+            aria-label="Search coins"
+            autocomplete="off"
+          />
+          <button class="toolbar__clear" id="clearSearch" aria-label="Clear search" hidden>
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="toolbar__controls">
+          <div class="select-wrapper">
+            <label for="sortSelect" class="sr-only">Sort by</label>
+            <select id="sortSelect" class="toolbar__select" aria-label="Sort coins by">
+              <option value="market_cap">Market Cap</option>
+              <option value="price">Price</option>
+              <option value="change">24h Change</option>
+              <option value="name">Name</option>
+              <option value="volume">Volume</option>
+            </select>
+            <i class="fa-solid fa-chevron-down select-arrow"></i>
+          </div>
+
+          <button
+            class="btn btn--icon sort-order-btn"
+            id="sortOrderBtn"
+            title="Toggle sort order"
+            aria-label="Toggle ascending/descending"
+          >
+            <i class="fa-solid fa-arrow-down-wide-short" id="sortOrderIcon"></i>
+          </button>
+
+          <button
+            class="btn btn--outline watchlist-toggle"
+            id="watchlistToggle"
+            aria-pressed="false"
+          >
+            <i class="fa-solid fa-star"></i>
+            <span>Watchlist</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ───── Error Banner ───── -->
+      <div class="error-banner" id="errorBanner" hidden role="alert">
+        <i class="fa-solid fa-triangle-exclamation error-banner__icon"></i>
+        <div class="error-banner__body">
+          <strong>Failed to fetch data</strong>
+          <p id="errorMsg">An unexpected error occurred.</p>
+        </div>
+        <button class="btn btn--sm btn--primary" id="retryBtn">
+          <i class="fa-solid fa-rotate-right"></i> Retry
+        </button>
+      </div>
+
+      <!-- ───── No Results ───── -->
+      <div class="empty-state" id="emptyState" hidden>
+        <i class="fa-solid fa-ghost empty-state__icon"></i>
+        <h3>No results found</h3>
+        <p id="emptyStateMsg">Try a different search term or clear your filters.</p>
+      </div>
+
+      <!-- ───── Coin Grid ───── -->
+      <section class="grid" id="coinGrid" aria-label="Cryptocurrency list" aria-live="polite">
+        <!-- Cards injected here by UI.js -->
+      </section>
+    </main>
+
+    <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+    <footer class="footer">
+      <p>
+        Data provided by
+        <a href="https://www.coingecko.com" target="_blank" rel="noopener">CoinGecko</a>
+        · PROJECT NEXUS &copy; 2026
+      </p>
+    </footer>
+
+    <!-- ES6 Module entry point -->
+    <script type="module" src="js/App.js"></script>
+  </body>
+</html>
