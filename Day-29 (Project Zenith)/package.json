@@ -1,11 +1,12 @@
 {
   "name": "day-29-(project-zenith)",
   "version": "1.0.0",
-  "description": "",
+  "description": "Project Zenith — A full-stack Blog CMS built with Express, MongoDB Atlas & Vanilla JS",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node --watch server.js"
   },
   "keywords": [],
   "author": "",
